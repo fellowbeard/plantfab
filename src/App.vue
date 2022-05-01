@@ -2,7 +2,10 @@
   <nav>
     <router-link to="/">Home</router-link>
     |
-    <router-link to="/plants">All Plants</router-link>
+    <router-link to="/plants">Plant Gallery</router-link>
+    |
+    <router-link to="/favorites">Favorites</router-link>
+
     <!-- <router-link to="/about">About</router-link> -->
   </nav>
   <router-view />
