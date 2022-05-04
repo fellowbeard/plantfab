@@ -4,6 +4,7 @@
     <div v-for="favorite in favorites" v-bind:key="favorite.id">
       <h2>{{ favorite.title }}</h2>
       <img v-bind:src="favorite.image_url" v-bind:alt="favorite.title" />
+      <button v-on:click="destroyFavorite(favorite)">UnHeart</button>
     </div>
   </div>
 </template>
@@ -25,6 +26,12 @@ export default {
       axios.get("/favorites").then((response) => {
         console.log(response.data);
         this.favorites = response.data;
+      });
+    },
+    destroyFavorite: function (favorite) {
+      axios.delete("/favorites/" + favorite.id).then((response) => {
+        console.log("favorite destroyed", response);
+        this.$router.push("/favorites");
       });
     },
   },

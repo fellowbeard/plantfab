@@ -5,6 +5,12 @@
     <router-link to="/">Plant Gallery</router-link>
     |
     <router-link to="/favorites">Favorites</router-link>
+    |
+    <router-link to="/signup">Signup</router-link>
+    |
+    <router-link to="/login">Login</router-link>
+    |
+    <router-link to="/logout">Logout</router-link>
 
     <!-- <router-link to="/about">About</router-link> -->
   </nav>
