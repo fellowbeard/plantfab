@@ -1,23 +1,23 @@
 import { createRouter, createWebHistory } from "vue-router";
-import HomeView from "../views/HomeView.vue";
+// import HomeView from "../views/HomeView.vue";
 import IndexView from "../views/IndexView.vue";
-import CreateView from "../views/CreateView.vue";
+import FavIndexView from "../views/FavIndexView.vue";
 
 const routes = [
+  // {
+  //   path: "/",
+  //   name: "home",
+  //   component: HomeView,
+  // },
   {
     path: "/",
-    name: "home",
-    component: HomeView,
-  },
-  {
-    path: "/plants",
     name: "plants-index",
     component: IndexView,
   },
   {
     path: "/favorites",
     name: "favorites-index",
-    component: CreateView,
+    component: FavIndexView,
   },
   // {
   //   path: "/about",
