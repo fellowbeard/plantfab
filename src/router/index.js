@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from "vue-router";
 // import HomeView from "../views/HomeView.vue";
 import IndexView from "../views/IndexView.vue";
+import PlantShowView from "../views/PlantShowView.vue";
 import FavIndexView from "../views/FavIndexView.vue";
 import SignupView from "../views/SignupView.vue";
 import LoginView from "../views/LoginView.vue";
@@ -16,6 +17,11 @@ const routes = [
     path: "/",
     name: "plants-index",
     component: IndexView,
+  },
+  {
+    path: "/plants/:id",
+    name: "plants-show",
+    component: PlantShowView,
   },
   {
     path: "/favorites",
