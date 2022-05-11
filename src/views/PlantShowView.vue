@@ -3,7 +3,7 @@
     <h2>{{ plant.title }}</h2>
     <img v-bind:src="plant.image_url" v-bind:alt="plant.title" />
     <h3>{{ plant.description }}</h3>
-    <router-link to="/plants">Back</router-link>
+    <router-link to="/">Back</router-link>
   </div>
 </template>
 

@@ -5,6 +5,7 @@
       <h2>{{ favorite.title }}</h2>
       <img v-bind:src="favorite.image_url" v-bind:alt="favorite.title" />
       <button v-on:click="destroyFavorite(favorite)">UnHeart</button>
+      <button v-on:click="sendReminder()">Set Reminder</button>
       <h3>{{ favorite.description }}</h3>
     </div>
   </div>
@@ -35,6 +36,12 @@ export default {
     destroyFavorite: function (favorite) {
       axios.delete("/favorites/" + favorite.id).then((response) => {
         console.log("favorite destroyed", response);
+        this.$router.push("/favorites");
+      });
+    },
+    sendReminder: function () {
+      axios.get("/twilio/sms/").then((response) => {
+        console.log("sms sent", response);
         this.$router.push("/favorites");
       });
     },
