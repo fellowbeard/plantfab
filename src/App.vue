@@ -23,7 +23,7 @@
               <i class="bi bi-search"></i>
             </a>
           </div>
-          <!-- Acount -->
+          <!-- Account -->
           <div class="nav-item dropdown">
             <a
               class="nav-link"
@@ -38,9 +38,10 @@
             </a>
             <div class="dropdown-menu dropdown-menu-end mt-2 shadow" aria-labelledby="dropdown_myaccount">
               <!-- <a class="dropdown-item" href="/">PlantFab</a> -->
-              <a class="dropdown-item" href="/login">Login</a>
-              <a class="dropdown-item" href="/signup">Sign Up</a>
-              <a class="dropdown-item" href="/favorites">Favorites</a>
+              <a v-if="!isLoggedIn()" class="dropdown-item" href="/login">Login</a>
+              <a v-if="isLoggedIn()" class="dropdown-item" href="/logout">Logout</a>
+              <a v-if="!isLoggedIn()" class="dropdown-item" href="/signup">Sign Up</a>
+              <a v-if="isLoggedIn()" class="dropdown-item" href="/favorites">Favorites</a>
             </div>
           </div>
           <!-- Wishlist -->
@@ -97,10 +98,26 @@
   </footer>
   <!-- End Footer -->
 </template>
+<script>
+export default {
+  data: function () {
+    return {};
+  },
+  methods: {
+    isLoggedIn() {
+      if (localStorage.getItem("jwt")) {
+        return true;
+      } else {
+        return false;
+      }
+    },
+  },
+};
+</script>
 
 <style>
 .header-image {
-  background-image: url("../public/static/img/pinkbrick.jpg");
+  background-image: url("../public/static/img/headerimg.jpg");
   background-size: cover;
   background-repeat: no-repeat;
 }
