@@ -1,12 +1,12 @@
 <template>
   <!-- Header -->
   <div class="header-height-bar"></div>
-  <header class="header-main bg-white header-light fixed-top header-height">
+  <header class="header-main fixed-top header-height header-image">
     <nav class="navbar navbar-expand-lg navbar-light">
       <div class="container">
         <!-- Logo -->
         <a class="navbar-brand" href="/">
-          <img src="/static/img/plantfablogosmall.jpg" title="" alt="" />
+          <img src="/static/img/logotransp1.png" title="" alt="" />
         </a>
         <!-- Logo -->
 
@@ -45,8 +45,8 @@
           </div>
           <!-- Wishlist -->
           <div class="nav-item d-none d-xl-block">
-            <a class="nav-link" href="#">
-              <i class="bi bi-heart"></i>
+            <a class="nav-link" href="/favorites">
+              <!-- <i class="bi bi-heart"></i> -->
             </a>
           </div>
           <!-- Cart -->
@@ -58,7 +58,7 @@
             </a>
           </div> -->
           <!-- Mobile Toggle -->
-          <button
+          <!-- <button
             class="navbar-toggler ms-2"
             type="button"
             data-bs-toggle="collapse"
@@ -68,7 +68,7 @@
             aria-label="Toggle navigation"
           >
             <span class="navbar-toggler-icon"></span>
-          </button>
+          </button> -->
           <!-- End Mobile Toggle -->
         </div>
       </div>
@@ -77,9 +77,34 @@
   <!-- Header End -->
 
   <router-view />
+
+  <!-- Footer -->
+  <footer class="header-image fixed-bottom">
+    <div class="footer-top py-3">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-6 col-lg-4 my-3">
+            <div class="nav white-link fs-5"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom py-2 footer-border-top light small">
+      <div class="container">
+        <div class="row"></div>
+      </div>
+    </div>
+  </footer>
+  <!-- End Footer -->
 </template>
 
 <style>
+.header-image {
+  background-image: url("../public/static/img/pinkbrick.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
 /* #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
