@@ -1,6 +1,19 @@
 <template>
   <!-- Product Box -->
   <div class="pb-10">
+    <!-- Nav Search-->
+    <div class="d-flex">
+      <input class="form-control" type="search" placeholder="Search..." aria-label="Search..." v-model="searchText" />
+      <!-- <a
+              class="nav-link collapsed"
+              data-bs-toggle="collapse"
+              href="javascript:void(0)"
+              data-bs-target="#search-open"
+              aria-expanded="false"
+            >
+              <i class="bi bi-search"></i>
+            </a> -->
+    </div>
     <div class="plants-index row g-0">
       <div class="col-sm-6 col-lg-3" v-for="plant in plants" v-bind:key="plant.id">
         <div class="product-card-1">
@@ -65,10 +78,19 @@ export default {
     return {
       plants: [],
       favoriteParams: {},
+      searchText: "",
     };
   },
   created: function () {
     this.indexPlants();
+  },
+  watch: {
+    searchText() {
+      axios.get(`/plants?search=${this.searchText}`).then((response) => {
+        console.log(response.data);
+        this.plants = response.data;
+      });
+    },
   },
   methods: {
     indexPlants: function () {
@@ -94,6 +116,7 @@ export default {
         .post("/favorites", favorite)
         .then((response) => {
           console.log("favorites create", response);
+          // window.alert("Favorited");
           // this.$router.push("/favorites");
         })
         .catch((error) => {
@@ -103,6 +126,17 @@ export default {
     },
     showPlant: function (id) {
       this.$router.push(`/plants/${id}`);
+    },
+
+    searchPlant: function () {
+      // axios
+      //   .get(`/plants`, {
+      //     search: this.searchText,
+      //   })
+      //   .then((response) => {
+      //     console.log(response.data);
+      //     this.plants = response.data;
+      //   });
     },
   },
 };

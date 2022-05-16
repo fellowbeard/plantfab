@@ -84,7 +84,31 @@ export default {
       console.log(this.plant);
     });
   },
-  methods: {},
+  methods: {
+    createFavorite: function (plant) {
+      var favorite = {
+        user_id: 1, //switch to user.id
+        plant_id: plant.id,
+        title: plant.name,
+        image_url: plant.image_url,
+        description: plant.description,
+      };
+      console.log(favorite.title);
+      console.log(favorite.image_url);
+      console.log(favorite.description);
+
+      axios
+        .post("/favorites", favorite)
+        .then((response) => {
+          console.log("favorites create", response);
+          // this.$router.push("/favorites");
+        })
+        .catch((error) => {
+          console.log("favorites create error", error.response);
+          this.errors = error.response.data.errors;
+        });
+    },
+  },
 };
 </script>
 <style>

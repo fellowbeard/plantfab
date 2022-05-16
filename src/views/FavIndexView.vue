@@ -1,5 +1,5 @@
 <template>
-  <div class="favorites-new row g-0">
+  <div class="favorites-new row g-0 pb-10">
     <div class="col-sm-6 col-lg-3" v-for="favorite in favorites" v-bind:key="favorite.id">
       <div class="product-card-1">
         <div class="product-card-image">
@@ -105,6 +105,8 @@ export default {
     destroyFavorite: function (favorite) {
       axios.delete("/favorites/" + favorite.id).then((response) => {
         console.log("favorite destroyed", response);
+        let index = this.favorites.indexOf(favorite);
+        this.favorites.splice(index, 1);
         this.$router.push("/favorites");
       });
     },

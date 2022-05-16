@@ -99,7 +99,7 @@
       </div>
     </div>
     <!-- end signup -->
-    <form v-on:submit.prevent="submit()">
+    <!-- <form v-on:submit.prevent="submit()">
       <h1>Signup</h1>
       <ul>
         <li v-for="error in errors" v-bind:key="error">{{ error }}</li>
@@ -121,7 +121,7 @@
         <input type="password" v-model="newUserParams.password_confirmation" />
       </div>
       <input type="submit" value="Submit" />
-    </form>
+    </form> -->
   </div>
 </template>
 
