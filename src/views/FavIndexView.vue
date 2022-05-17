@@ -31,7 +31,7 @@
               <!-- <i class="bi bi-eye-fill"></i> -->
             </a>
 
-            <Popper content="I'll remind you!">
+            <Popper content="Remind me!">
               <a
                 data-bs-toggle="modal"
                 data-bs-target="#px-quick-view"
@@ -126,3 +126,16 @@ export default {
   },
 };
 </script>
+
+<style>
+:root {
+  --popper-theme-background-color: rgb(255, 44, 185);
+  --popper-theme-background-color-hover: rgb(255, 44, 185);
+  --popper-theme-text-color: #ffffff;
+  --popper-theme-border-width: 0px;
+  --popper-theme-border-style: solid;
+  --popper-theme-border-radius: 6px;
+  --popper-theme-padding: 9px;
+  --popper-theme-box-shadow: 0 6px 30px -6px rgba(0, 0, 0, 0.25);
+}
+</style>
