@@ -22,17 +22,18 @@
               <!-- <a v-on:click="createFavorite(plant)" class="btn btn-outline-primary">
               <i class="bi bi-heart"></i>
             </a> -->
-
-              <a
-                data-bs-toggle="modal"
-                data-bs-target="#px-quick-view"
-                href="javascript:void(0)"
-                v-on:click="createFavorite(plant)"
-                class="btn btn-outline-primary icon-color"
-              >
-                <i class="bi bi-heart-fill"></i>
-                <!-- <i class="bi bi-eye-fill"></i> -->
-              </a>
+              <Popper content="Favorited!">
+                <a
+                  data-bs-toggle="modal"
+                  data-bs-target="#px-quick-view"
+                  href="javascript:void(0)"
+                  v-on:click="createFavorite(plant)"
+                  class="btn btn-outline-primary icon-color"
+                >
+                  <i class="bi bi-heart-fill"></i>
+                  <!-- <i class="bi bi-eye-fill"></i> -->
+                </a>
+              </Popper>
             </div>
             <div class="product-media">
               <a href="#">
@@ -72,8 +73,12 @@
 </template>
 
 <script>
+import Popper from "vue3-popper";
 import axios from "axios";
 export default {
+  components: {
+    Popper,
+  },
   data: function () {
     return {
       plants: [],
@@ -154,5 +159,15 @@ export default {
   width: 300px;
   height: 300px;
   object-fit: cover;
+}
+:root {
+  --popper-theme-background-color: rgb(255, 44, 185);
+  --popper-theme-background-color-hover: rgb(255, 44, 185);
+  --popper-theme-text-color: #ffffff;
+  --popper-theme-border-width: 0px;
+  --popper-theme-border-style: solid;
+  --popper-theme-border-radius: 6px;
+  --popper-theme-padding: 9px;
+  --popper-theme-box-shadow: 0 6px 30px -6px rgba(0, 0, 0, 0.25);
 }
 </style>

@@ -30,15 +30,18 @@
               </svg>
               <!-- <i class="bi bi-eye-fill"></i> -->
             </a>
-            <a
-              data-bs-toggle="modal"
-              data-bs-target="#px-quick-view"
-              href="javascript:void(0)"
-              v-on:click="sendReminder()"
-              class="btn btn-outline-primary"
-            >
-              <i class="bi bi-alarm-fill"></i>
-            </a>
+
+            <Popper content="I'll remind you!">
+              <a
+                data-bs-toggle="modal"
+                data-bs-target="#px-quick-view"
+                href="javascript:void(0)"
+                v-on:click="sendReminder()"
+                class="btn btn-outline-primary"
+              >
+                <i class="bi bi-alarm-fill"></i>
+              </a>
+            </Popper>
           </div>
           <div class="product-media">
             <a href="#">
@@ -81,8 +84,12 @@
 </template>
 
 <script>
+import Popper from "vue3-popper";
 import axios from "axios";
 export default {
+  components: {
+    Popper,
+  },
   data: function () {
     return {
       favorites: [],
