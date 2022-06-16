@@ -7,7 +7,7 @@ axios.defaults.headers.common["X-Requested-With"] = "XMLHttpRequest";
 axios.defaults.baseURL =
   process.env.NODE_ENV === "development" ? "http://localhost:3000" : "https://plantfab-backend.herokuapp.com";
 
-axios.defaults.baseURL = process.env.NODE_ENV === "production" ? "https://ike-hawaii.herokuapp.com" : "/";
+axios.defaults.baseURL = process.env.NODE_ENV === "production" ? "https://plantfab-backend.herokuapp.com" : "/";
 
 var jwt = localStorage.getItem("jwt");
 if (jwt) {
