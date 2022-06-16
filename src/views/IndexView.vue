@@ -107,7 +107,7 @@ export default {
 
     createFavorite: function (plant) {
       var favorite = {
-        user_id: 1, //switch to user.id
+        user_id: localStorage.user_id,
         plant_id: plant.id,
         title: plant.name,
         image_url: plant.image_url,
