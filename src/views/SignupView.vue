@@ -7,7 +7,7 @@
           <div class="col-lg-10 col-xxl-6">
             <div class="card">
               <div class="card-header bg-transparent py-3">
-                <h3 class="h4 mb-0">Signup</h3>
+                <h3 class="h4 mb-0">No need to sign up... Just click "Login here" to try it out!</h3>
               </div>
               <div class="card-body">
                 <form v-on:submit.prevent="submit()">

@@ -1,10 +1,18 @@
 <template>
-  <!-- Product Box -->
-  <div class="pb-10">
-    <!-- Nav Search-->
-    <div class="d-flex">
-      <input class="form-control" type="search" placeholder="Search..." aria-label="Search..." v-model="searchText" />
-      <!-- <a
+  <!-- <div :style="{ 'background-image': 'url(../public/static/img/whitebrickscover.png)' }"> -->
+  <div :style="image">
+    <!-- Product Box -->
+    <div class="pb-10">
+      <!-- Nav Search-->
+      <div class="d-flex">
+        <input
+          class="form-control"
+          type="search"
+          placeholder="Search for your houseplants..."
+          aria-label="Search for your houseplants..."
+          v-model="searchText"
+        />
+        <!-- <a
               class="nav-link collapsed"
               data-bs-toggle="collapse"
               href="javascript:void(0)"
@@ -13,63 +21,65 @@
             >
               <i class="bi bi-search"></i>
             </a> -->
-    </div>
-    <div class="plants-index row g-0">
-      <div class="col-sm-6 col-lg-3" v-for="plant in plants" v-bind:key="plant.id">
-        <div class="product-card-1">
-          <div class="product-card-image">
-            <div class="product-action">
-              <!-- <a v-on:click="createFavorite(plant)" class="btn btn-outline-primary">
+      </div>
+      <div class="plants-index row g-0">
+        <div class="col-sm-6 col-lg-3" v-for="plant in plants" v-bind:key="plant.id">
+          <div class="product-card-1">
+            <div class="product-card-image">
+              <div class="product-action">
+                <!-- <a v-on:click="createFavorite(plant)" class="btn btn-outline-primary">
               <i class="bi bi-heart"></i>
             </a> -->
-              <Popper content="Favorited!">
-                <a
-                  data-bs-toggle="modal"
-                  data-bs-target="#px-quick-view"
-                  href="javascript:void(0)"
-                  v-on:click="createFavorite(plant)"
-                  class="btn btn-outline-primary icon-color"
-                >
-                  <i class="bi bi-heart-fill"></i>
-                  <!-- <i class="bi bi-eye-fill"></i> -->
+                <Popper content="Favorited!">
+                  <a
+                    data-bs-toggle="modal"
+                    data-bs-target="#px-quick-view"
+                    href="javascript:void(0)"
+                    v-on:click="createFavorite(plant)"
+                    class="btn btn-outline-primary icon-color"
+                  >
+                    <i class="bi bi-heart-fill"></i>
+                    <!-- <i class="bi bi-eye-fill"></i> -->
+                  </a>
+                </Popper>
+              </div>
+              <div class="product-media">
+                <a href="#">
+                  <img class="test" v-bind:src="plant.image_url" v-on:click="showPlant(plant.id)" />
                 </a>
-              </Popper>
+              </div>
             </div>
-            <div class="product-media">
-              <a href="#">
-                <img class="test" v-bind:src="plant.image_url" v-on:click="showPlant(plant.id)" />
-              </a>
-            </div>
-          </div>
-          <div class="product-card-info">
-            <div class="product-meta small"></div>
+            <div class="product-card-info">
+              <div class="product-meta small"></div>
 
-            <h6 class="product-title">
-              <a v-on:click="showPlant(plant.id)">{{ plant.name }}</a>
-            </h6>
+              <h6 class="product-title">
+                <a v-on:click="showPlant(plant.id)">{{ plant.name }}</a>
+              </h6>
 
-            <div class="product-price">
-              <span class="text-primary">
-                <small></small>
-              </span>
-              <del class="fs-sm text-muted">
-                <small></small>
-              </del>
+              <div class="product-price">
+                <span class="text-primary">
+                  <small></small>
+                </span>
+                <del class="fs-sm text-muted">
+                  <small></small>
+                </del>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-      <!-- End Product Box -->
-      <!-- <div class="plants-index"> -->
-      <!-- <div v-for="plant in plants" v-bind:key="plant.id" v-on:click="showPlant(plant.id)">
+        <!-- End Product Box -->
+        <!-- <div class="plants-index"> -->
+        <!-- <div v-for="plant in plants" v-bind:key="plant.id" v-on:click="showPlant(plant.id)">
         <h2>{{ plant.name }}</h2>
         <img v-bind:src="plant.image_url" v-bind:alt="plant.name" />
         <button v-on:click="createFavorite(plant)">Heart</button> -->
-      <!-- <h3>{{ plant.description }}</h3> -->
-      <!-- </div> -->
-      <!-- </div> -->
+        <!-- <h3>{{ plant.description }}</h3> -->
+        <!-- </div> -->
+        <!-- </div> -->
+      </div>
     </div>
   </div>
+  <!-- </div> -->
 </template>
 
 <script>
@@ -84,6 +94,7 @@ export default {
       plants: [],
       favoriteParams: {},
       searchText: "",
+      // image: { backgroundImage: "url(../public/static/img/whitebrickscover.png)" },
     };
   },
   created: function () {

@@ -7,7 +7,7 @@
           <div class="col-lg-5 col-xxl-4">
             <div class="card">
               <div class="card-header bg-transparent py-3">
-                <h3 class="h4 mb-0">Login</h3>
+                <h3 class="h4 mb-0">Use "test@test.com" for the email, and "password" for the password!</h3>
               </div>
               <div class="card-body">
                 <form v-on:submit.prevent="submit()">

@@ -8,6 +8,9 @@
           <a class="navbar-brand" href="/">
             <img src="/static/img/logotransp1.png" title="" alt="" />
           </a>
+          <a class="logo-alt" href="/">
+            <img src="/static/img/instructionslogo1.png" title="" alt="" />
+          </a>
           <!-- Logo -->
 
           <div class="nav flex-nowrap align-items-center header-right">
@@ -64,12 +67,13 @@
       </nav>
     </header>
   </div>
+
   <!-- Header End -->
 
   <router-view />
 
   <!-- Footer -->
-  <footer class="header-image fixed-bottom">
+  <!-- <footer class="header-image fixed-bottom">
     <div class="footer-top py-3">
       <div class="container">
         <div class="row">
@@ -84,7 +88,7 @@
         <div class="row"></div>
       </div>
     </div>
-  </footer>
+  </footer> -->
   <!-- End Footer -->
 </template>
 <script>
@@ -105,6 +109,10 @@ export default {
 </script>
 
 <style>
+.logo-alt {
+  max-width: 300px;
+  height: auto;
+}
 .header-image {
   background-image: url("../public/static/img/headerimg.jpg");
   background-size: cover;
