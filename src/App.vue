@@ -1,7 +1,7 @@
 <template>
   <!-- Header -->
   <div style="min-height: 163px">
-    <header class="header-main fixed-top header-height header-image">
+    <header class="header-main header-height header-image">
       <nav class="navbar navbar-expand-lg navbar-light">
         <div class="container">
           <!-- Logo -->
@@ -27,6 +27,7 @@
               >
                 <i class="bi bi-person-circle"></i>
               </a>
+
               <div class="dropdown-menu dropdown-menu-end mt-2 shadow" aria-labelledby="dropdown_myaccount">
                 <!-- <a class="dropdown-item" href="/">PlantFab</a> -->
                 <a v-if="!isLoggedIn()" class="dropdown-item" href="/login">Login</a>
@@ -35,33 +36,36 @@
                 <a v-if="isLoggedIn()" class="dropdown-item" href="/favorites">Favorites</a>
               </div>
             </div>
+            <!-- <div class="nav-item dropdown">
+              <a
+                class="nav-link"
+                href="#"
+                role="button"
+                id="dropdown_myaccount"
+                data-bs-toggle="dropdown"
+                aria-haspopup="true"
+                aria-expanded="false"
+              >
+                <i class="bi bi-search"></i>
+              </a>
+              <div class="dropdown-menu dropdown-menu-end mt-2 shadow" aria-labelledby="dropdown_myaccount">
+                <div class="d-flex">
+                  <input
+                    class="form-control"
+                    type="search"
+                    placeholder="Search..."
+                    aria-label="Search..."
+                    v-model="searchText"
+                  />
+                </div>
+              </div>
+            </div> -->
             <!-- Wishlist -->
             <div class="nav-item d-none d-xl-block">
               <a class="nav-link" href="/favorites">
                 <!-- <i class="bi bi-heart"></i> -->
               </a>
             </div>
-            <!-- Cart -->
-            <!-- <div class="nav-item">
-            <a class="nav-link" data-bs-toggle="modal" data-bs-target="#modalMiniCart" href="javascript:void(0)">
-              <span class="" data-cart-items="8">
-                <i class="bi bi-cart"></i>
-              </span>
-            </a>
-          </div> -->
-            <!-- Mobile Toggle -->
-            <!-- <button
-            class="navbar-toggler ms-2"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <span class="navbar-toggler-icon"></span>
-          </button> -->
-            <!-- End Mobile Toggle -->
           </div>
         </div>
       </nav>
@@ -92,9 +96,16 @@
   <!-- End Footer -->
 </template>
 <script>
+import axios from "axios";
 export default {
   data: function () {
-    return {};
+    return {
+      plants: [],
+      searchText: "",
+    };
+  },
+  created: function () {
+    this.indexPlants();
   },
   methods: {
     isLoggedIn() {
@@ -103,6 +114,21 @@ export default {
       } else {
         return false;
       }
+    },
+    indexPlants: function () {
+      axios.get("/plants").then((response) => {
+        console.log("plants index", response);
+        this.plants = response.data;
+      });
+    },
+  },
+
+  watch: {
+    searchText() {
+      axios.get(`/plants?search=${this.searchText}`).then((response) => {
+        console.log(response.data);
+        this.plants = response.data;
+      });
     },
   },
 };
